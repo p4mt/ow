@@ -2,6 +2,8 @@ var margin = {top: 1, right: 1, bottom: 6, left: 1},
 	width = 960 - margin.left - margin.right,
 	height = 900 - margin.top - margin.bottom;
 
+
+
 var svg = d3.select("#chart");
 
 svg.append("svg")
@@ -15,13 +17,14 @@ var sankey = d3.sankey()
 	.nodePadding(10)
 	.size([width, height]);
 
-var path = sankey.links();
+var path = sankey.link();
 
 d3.json("owData.json", function(owData) {
 	
-function id(d) {
+	function id(d) {
   return d.id;
 }
+
   sankey
 	  .nodes(owData.nodes)
 	  .links(owData.links)
@@ -36,7 +39,7 @@ function id(d) {
 	  .sort(function(a, b) { return b.dy - a.dy; });
 
   link.append("title")
-	  .text(function(d) { return d.source.name + " → " + d.target.name + "\n"; });
+	  .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
 
   var node = svg.append("g").selectAll(".node")
 	  .data(owData.nodes)
@@ -54,7 +57,7 @@ function id(d) {
 	  .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
 	  .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
 	.append("title")
-	  .text(function(d) { return d.name + "\n"; });
+	  .text(function(d) { return d.name + "\n" + format(d.value); });
 
   node.append("text")
 	  .attr("x", -6)
