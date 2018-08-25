@@ -37,7 +37,7 @@ d3.json("owData.json", function(owData) {
 	  .sort(function(a, b) { return b.dy - a.dy; });
 
   link.append("title")
-	  .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+	  .text(function(d) { return d.source.name + " → " + d.target.name + "\n"; });
 
   var node = svg.append("g").selectAll(".node")
 	  .data(owData.nodes)
@@ -55,7 +55,7 @@ d3.json("owData.json", function(owData) {
 	  .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
 	  .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
 	.append("title")
-	  .text(function(d) { return d.name + "\n" + format(d.value); });
+	  .text(function(d) { return d.name + "\n"; });
 
   node.append("text")
 	  .attr("x", -6)
