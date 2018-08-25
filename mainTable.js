@@ -17,6 +17,10 @@ var sankey = d3.sankey()
 
 var path = sankey.links();
 
+function id(d) {
+  return d.id;
+}
+
 d3.json("owData.json", function(owData) {
 
   sankey
