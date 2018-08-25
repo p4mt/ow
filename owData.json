@@ -36,9 +36,7 @@
 {"name":"Mercy"},
 {"name":"Moira"},
 {"name":"Zenyatta"},
-{"name":"Azrail"},
-{"name":""},
-{"name":""},
+{"name":"Azrail"}
 ],
 "links":[
 {"source": "Hitscan", "target": "DPS"},
@@ -49,5 +47,5 @@
 {"source": "Off Heal", "target": "Heal"},
 {"source": "Azrail", "target": "Mccree"},
 {"source": "Azrail", "target": "Winston"},
-{"source": "Azrail", "target": "Dva"},
+{"source": "Azrail", "target": "Dva"}
 ]}
