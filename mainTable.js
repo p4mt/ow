@@ -17,16 +17,15 @@ var sankey = d3.sankey()
 
 var path = sankey.links();
 
+d3.json("owData.json", function(owData) {
+	
 function id(d) {
   return d.id;
 }
-
-d3.json("owData.json", function(owData) {
-
   sankey
 	  .nodes(owData.nodes)
 	  .links(owData.links)
-	  .layout(32);
+	  .layout(37);
 
   var link = svg.append("g").selectAll(".link")
 	  .data(owData.links)
