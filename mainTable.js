@@ -17,7 +17,7 @@ var sankey = d3.sankey()
 	.nodePadding(10)
 	.size([width, height]);
 
-var path = sankey.link();
+var path = sankey.links();
 
 d3.json("owData.json", function(owData) {
 	
